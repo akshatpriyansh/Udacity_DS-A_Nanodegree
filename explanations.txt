@@ -1,0 +1,75 @@
+Question 1 - Explanation
+
+
+1. I converted both the strings into lists. Ex. "abc" is now ['a','b','c'] because my purpose here was
+to check if all character in the smaller string exist in the larger string.
+
+2. I also wanted to check off the items which were found, so the same character will never be computed twice.
+
+3. I sorted the larger string by their ASCII value since I implemented Binary Search to search in O(log N) time
+
+4. Now for each character in my smaller array, I just binary search and delete it from the longer list.
+
+5. This serves my purpose and gives me a good complexity of O(n log(n))
+
+
+
+Question 2 - Explanation
+
+1. I researched the internet for good algorithms for finding longest Palindromic substrings. I know how DP can be used to reduce time complexity, but I knew DP is going to take a long time to grasp and I didn't want to copy other's code. So i designed a solution which was pretty optimal for a question like this.
+
+2. Main idea is here to iterate over each element in the array with an additional variable which is always equal to the variable.
+
+3. The variable will help traverse in both sides of the index to find the palindromic range around that index.
+
+4. Then I do that for each index and store each index and range in a list. From that list I can find the index with maximum palindromic substring range.
+
+5. I also know the range, so I do basic operations to find the palindromic substring.
+
+6. I had to do a little tweak to find palindromic substrings in even length, but I did it in O(1) time with just if conditions. So that served the purpose.
+
+7. All this happens in constant Space complexity.
+
+Question 3 - Explanation
+
+1. For finding the Minimum Spanning tree in a graph, two main Algorithms are Available - Kruskal and Prim
+
+2. I am using the Prim's algorithm and follow the same general steps which the algorithm specifies
+
+3. I extract all keys in the dictionary and make separate subsets for each vertex. This takes O(E) space complexity.
+
+4. For the edges, I sort them in a fashion to remove all duplicate values. For example, if A and B are connected, both  A and B vertices are going to have the same connection, but we don't want same connections. So we sort them and keep them in a set which handles the deduplication.
+
+5. Now we go over each edge and iterate in the vertices sets. There we look if we can find if any of the vertices are alreadyin the same group, if they are not, we add them in group. \
+
+6. We explicitly define < and > relations, since if any of the two vertices are present in the same group, it would result in a cycle.
+
+7. After some loops, all the groups will be merged in one group, and any more edges found will just create cycles. 
+
+We break the loop then and return the result after converting it into edge list.
+
+
+Question 4 - Explanation
+
+1. I was thinking of contructing a class and making methods to construct the tree. But I found the matrix to be sufficient enough to find the relations.
+
+2. So i try to find if any row in the list has a 1 in the (node_1) or (node_2) index. This means the node at that particular index in the Matrix list is a parent of the node we are trying to find.
+
+3. I append all the parents of node_1 and node_2 in two separate lists.
+
+4. Then I sort the list in descending order (since it is a binary search tree, it makes sense)
+
+5. Then we iterate from the first index (largest value) and try to find it in the second list through the linear time ( in ) operator
+
+6. If found, we return it
+
+7. Else, we return root, since root is the ancestor of all nodes in the tree.
+
+Question 5 - 
+
+1. In this question, I find the length of the linked list first.
+
+2. Then I can find the n node from the back by maintaining a counter variables and stop at index
+index = total_nodes - x
+
+3. No extra space needed and happens in O(n) time - since we only need to traverse the linked list each time once only
